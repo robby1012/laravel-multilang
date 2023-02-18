@@ -82,9 +82,11 @@ Route::get('lang/{locale}', function ($locale) {
 in your blade template or frontend system set languange switcher to language custom URL, ini this sample
 <your app domain url>/lang/<locale>
 
+Sample
+
 ```
 <a href="{{url('lang/en')}}" title="set language to english">EN</a>
-<a href="{{url('lang/fr')}}" title="set language to english">FR</a>
-<a href="{{url('lang/de')}}" title="set language to english">DE</a>
-<a href="{{url('lang/es')}}" title="set language to english">ES</a>
+<a href="{{url('lang/fr')}}" title="set language to france">FR</a>
+<a href="{{url('lang/de')}}" title="set language to german">DE</a>
+<a href="{{url('lang/es')}}" title="set language to spain">ES</a>
 ```
