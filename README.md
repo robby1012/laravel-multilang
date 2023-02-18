@@ -1,9 +1,9 @@
 # laravel-multilang
-Implementation of multilanguage with Laravel Framework
+Implementation of multi language with Laravel Framework
 
 Basic Premise:
 - Add custom middleware to handle every URL request
-- Register middleware to laravel kernal
+- Register middleware to laravel kernel
 - Inside custom middleware function check session for stored locale
 - set laravel app locale to locale stored in session
 - load requested URL
@@ -14,6 +14,8 @@ This sample use Laravel 9.X
 ```
 php artisan make:middleware Localization
 ```
+app\Http\Middleware\Localization.php
+
 
 ```
 <?php
@@ -43,7 +45,9 @@ class Localization
     }
 }
 ```
+
 app\Http\Kernel.php
+
 
 ```
 protected $middlewareGroups = [
@@ -73,4 +77,14 @@ Route::get('lang/{locale}', function ($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 });
+```
+
+in your blade template or frontend system set languange switcher to language custom URL, ini this sample
+<your app domain url>/lang/<locale>
+
+```
+<a href="{{url('lang/en'}}" title="set language to english">EN</a>
+<a href="{{url('lang/fr'}}" title="set language to english">FR</a>
+<a href="{{url('lang/de'}}" title="set language to english">DE</a>
+<a href="{{url('lang/es'}}" title="set language to english">ES</a>
 ```
